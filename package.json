@@ -1,5 +1,5 @@
 {
-  "name": "react-native-push-notification",
+  "name": "@datacamp/react-native-push-notification",
   "version": "3.0.3",
   "description": "React Native Local and Remote Notifications",
   "main": "index",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:zo0r/react-native-push-notification.git"
+    "url": "git+ssh://git@github.com:datacamp/react-native-push-notification.git"
   },
   "peerDependencies": {
     "react-native": ">=0.33"
