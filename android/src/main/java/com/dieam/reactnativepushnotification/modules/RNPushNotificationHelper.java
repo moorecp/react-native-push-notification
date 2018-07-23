@@ -138,7 +138,7 @@ public class RNPushNotificationHelper {
             }
             Class intentClass = getMainActivityClass();
             if (data != null) {
-                String activityName = data.getString("activityName");
+                String activityName = data.optString("activityName", null);
                 if (activityName != null) {
                     intentClass = Class.forName(activityName);
                 }
