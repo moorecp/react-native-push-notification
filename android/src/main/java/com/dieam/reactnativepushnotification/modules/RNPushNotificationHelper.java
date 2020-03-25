@@ -26,6 +26,7 @@ import com.facebook.react.bridge.ReadableMap;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -137,7 +138,19 @@ public class RNPushNotificationHelper {
 
     public void sendToNotificationCentre(Bundle bundle) {
         try {
+            JSONObject data = null;
+            try {
+                data = new JSONObject(bundle.getString("data"));
+            } catch (Exception e) {
+            }
             Class intentClass = getMainActivityClass();
+            if (data != null) {
+                String activityName = data.optString("activityName", null);
+                if (activityName != null) {
+                    intentClass = Class.forName(activityName);
+                }
+            }
+
             if (intentClass == null) {
                 Log.e(LOG_TAG, "No activity class found for the notification");
                 return;
